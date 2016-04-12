@@ -1,14 +1,31 @@
-FROM ubuntu:14.04
-                                                                                                                                                                      
-RUN apt-get update                                                                                                                                                    
-RUN apt-get install -y -qq git python-pip                                                                                                                             
-RUN pip install shutit                                                                                                                                                
-                                                                                                                                                                      
-WORKDIR /opt                                                                                                                                                          
-# Change the next two lines to build your ShutIt module.                                                                                                              
-RUN git clone https://github.com/yourname/yourshutitproject.git                                                                                                       
-WORKDIR /opt/yourshutitproject                                                                                                                                        
-RUN shutit build --delivery dockerfile                                                                                                                                
-                                                                                                                                                                      
-CMD ["/bin/bash"]                                                                                                                                                     
-        
+FROM alpine
+RUN apk update && apk add git
+RUN git config --global user.email "you@example.com"
+RUN git config --global user.name "Your Name"
+RUN git init
+RUN echo Line1 > afile
+RUN git add afile
+RUN git commit -am Line1
+RUN echo Line2 >> afile
+RUN git commit -am Line2
+RUN git branch feature_1
+RUN echo Line3 >> afile
+RUN git commit -am Line3
+RUN git checkout feature_1
+RUN echo FeatureLine1 >> afile
+RUN git commit -am FeatureLine1
+RUN git checkout master
+RUN git merge feature_1 || /bin/true
+RUN echo "Line1\nLine2\nLine3\nFeatureLine1\n" > afile
+RUN git commit -am Merged
+RUN git checkout HEAD^
+RUN git branch -f master
+RUN git checkout feature_1
+RUN git rebase master || /bin/true
+RUN echo "Line1\nLine2\nLine3\nFeatureLine1\n" > afile
+RUN git add afile
+RUN git rebase --continue
+RUN git checkout master
+RUN git merge feature_1
+
+

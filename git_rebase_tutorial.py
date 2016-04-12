@@ -71,7 +71,7 @@ class git_rebase_tutorial(ShutItModule):
 		#                                    - Get input from user and return output
 		# shutit.fail(msg)                   - Fail the program and exit with status 1
 		#
-		shutit.challenge('Initialise a git repository.','1',challenge_type='golf',expect_type='exact',hints=['init','ask again to get answer','git init'],congratulations='OK!',follow_on_context={'check_command':'ls -a1 .git | grep HEAD | wc -l','context':'docker'})
+		shutit.challenge('Initialise a git repository.','1',challenge_type='golf',expect_type='exact',hints=['init','ask again to get answer','git init'],congratulations='OK!',follow_on_context={'check_command':'ls -a1 .git | grep HEAD | wc -l','context':'docker','reset_container_name':'ok_container_name'})
 		#vi afile
 		#git add afile
 		#git commit -am afile
