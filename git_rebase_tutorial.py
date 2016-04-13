@@ -71,12 +71,49 @@ class git_rebase_tutorial(ShutItModule):
 		#                                    - Get input from user and return output
 		# shutit.fail(msg)                   - Fail the program and exit with status 1
 		#
-		shutit.challenge('Initialise a git repository.','1',challenge_type='golf',expect_type='exact',hints=['init','ask again to get answer','git init'],congratulations='OK!',follow_on_context={'check_command':'ls -a1 .git | grep HEAD | wc -l','context':'docker','reset_container_name':'ok_container_name'})
-		#vi afile
-		#git add afile
-		#git commit -am afile
-		#vi afile
-		#git commit -am commit2
+		shutit.send('cd /myproject')
+		shutit.challenge(
+			'Initialise a git repository.',
+			'1',
+			challenge_type='golf',
+			expect_type='exact',
+			hints=['init','ask again to get answer','git init'],
+			congratulations='OK!',
+			follow_on_context={
+				'check_command':'ls -a1 .git | grep HEAD | wc -l',
+				'context':'docker',
+				'reset_container_name':'imiell/git-rebase-tutorial:step_4',
+				'ok_container_name':'imiell/git-rebase-tutorial:step_5'
+			}
+		)
+		shutit.challenge(
+			'Create a file called "afile" with the line "Line1" in it, add commit it to the git repository.',
+			'''a362bf88e1dd7f9183f3da50ce57d474''',
+			challenge_type='golf',
+			expect_type='md5sum',
+			hints=[],
+			congratulations='OK!',
+			follow_on_context={
+				'check_command':'cat afile <(git status -s) <(find *)',
+				'context':'docker',
+				'reset_container_name':'imiell/git-rebase-tutorial:step_5',
+				'ok_container_name':'imiell/git-rebase-tutorial:step_8'
+			}
+		)
+		shutit.challenge(
+			'Create a file called "afile" with the line "Line2" in it, add commit it to the git repository.',
+			'1',
+			challenge_type='golf',
+			expect_type='md5sum',
+			hints=[],
+			congratulations='OK!',
+			follow_on_context={
+				'check_command':'cat afile <(git status -s) <(find *)',
+				'context':'docker',
+				'reset_container_name':'imiell/git-rebase-tutorial:step_8',
+				'ok_container_name':'imiell/git-rebase-tutorial:step_11'
+			}
+		)
 		#git branch feature1
 		#vi afile
 		#git commit -am Line3
@@ -89,7 +126,7 @@ class git_rebase_tutorial(ShutItModule):
 		#git commit -am afile
 		#vi afile
 		#git log --patch
-		#git checkout 7154d1aba6bc1cb3878dd6e6c0de304cc5cb7df1 / HEAD^^
+		#git checkout HEAD^^
 		#git branch -f master
 		#git checkout master
 		#git checkout feature1
