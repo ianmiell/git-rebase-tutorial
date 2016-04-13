@@ -82,8 +82,8 @@ class git_rebase_tutorial(ShutItModule):
 			follow_on_context={
 				'check_command':'ls -a1 .git | grep HEAD | wc -l',
 				'context':'docker',
-				'reset_container_name':'imiell/git-rebase-tutorial:step_4',
-				'ok_container_name':'imiell/git-rebase-tutorial:step_5'
+				'reset_container_name':'imiell/git-rebase-tutorial:step_3',
+				'ok_container_name':'imiell/git-rebase-tutorial:step_4'
 			}
 		)
 		shutit.challenge(
@@ -96,8 +96,8 @@ class git_rebase_tutorial(ShutItModule):
 			follow_on_context={
 				'check_command':'cat afile <(git status -s) <(find *)',
 				'context':'docker',
-				'reset_container_name':'imiell/git-rebase-tutorial:step_5',
-				'ok_container_name':'imiell/git-rebase-tutorial:step_8'
+				'reset_container_name':'imiell/git-rebase-tutorial:step_4',
+				'ok_container_name':'imiell/git-rebase-tutorial:step_7'
 			}
 		)
 		shutit.challenge(
@@ -110,8 +110,8 @@ class git_rebase_tutorial(ShutItModule):
 			follow_on_context={
 				'check_command':'cat afile <(git status -s) <(find *)',
 				'context':'docker',
-				'reset_container_name':'imiell/git-rebase-tutorial:step_8',
-				'ok_container_name':'imiell/git-rebase-tutorial:step_11'
+				'reset_container_name':'imiell/git-rebase-tutorial:step_7',
+				'ok_container_name':'imiell/git-rebase-tutorial:step_9'
 			}
 		)
 		#git branch feature1
