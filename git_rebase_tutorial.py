@@ -114,17 +114,90 @@ class git_rebase_tutorial(ShutItModule):
 				'ok_container_name':'imiell/git-rebase-tutorial:step_9'
 			}
 		)
-		#git branch feature1
-		#vi afile
-		#git commit -am Line3
-		#git checkout feature1
-		#vi afile
-		#git commit -am FL1
-		#git checkout master
-		#git merge feature1
-		#vi afile
-		#git commit -am afile
-		#vi afile
+		shutit.challenge(
+			'Create a branch called feature_1, but do not move to it.',
+			'1',
+			challenge_type='golf',
+			expect_type='md5sum',
+			hints=[],
+			congratulations='OK!',
+			follow_on_context={
+				'check_command':'git branch',
+				'context':'docker',
+				'reset_container_name':'imiell/git-rebase-tutorial:step_9',
+				'ok_container_name':'imiell/git-rebase-tutorial:step_10'
+			}
+		)
+		shutit.challenge(
+			'Continuing on master, add a Line3 to afile and commit it',
+			'1',
+			challenge_type='golf',
+			expect_type='md5sum',
+			hints=[],
+			congratulations='OK!',
+			follow_on_context={
+				'check_command':'git branch',
+				'context':'docker',
+				'reset_container_name':'imiell/git-rebase-tutorial:step_11',
+				'ok_container_name':'imiell/git-rebase-tutorial:step_12'
+			}
+		)
+		shutit.challenge(
+			'Checkout the feature_1 branch',
+			'1',
+			challenge_type='golf',
+			expect_type='md5sum',
+			hints=[],
+			congratulations='OK!',
+			follow_on_context={
+				'check_command':'git branch',
+				'context':'docker',
+				'reset_container_name':'imiell/git-rebase-tutorial:step_12',
+				'ok_container_name':'imiell/git-rebase-tutorial:step_13'
+			}
+		)
+		shutit.challenge(
+			'Add a line FeatureLine1 to this branch and commit it',
+			'1',
+			challenge_type='golf',
+			expect_type='md5sum',
+			hints=[],
+			congratulations='OK!',
+			follow_on_context={
+				'check_command':'git branch',
+				'context':'docker',
+				'reset_container_name':'imiell/git-rebase-tutorial:step_13',
+				'ok_container_name':'imiell/git-rebase-tutorial:step_15'
+			}
+		)
+		shutit.challenge(
+			'Check out master, and merge feature_1 into it',
+			'1',
+			challenge_type='golf',
+			expect_type='md5sum',
+			hints=[],
+			congratulations='OK!',
+			follow_on_context={
+				'check_command':'git branch',
+				'context':'docker',
+				'reset_container_name':'imiell/git-rebase-tutorial:step_15',
+				'ok_container_name':'imiell/git-rebase-tutorial:step_17'
+			}
+		)
+		shutit.challenge(
+			'Resolve the conflict, placing FeatureLine1 after Line3, and commit',
+			'1',
+			challenge_type='golf',
+			expect_type='md5sum',
+			hints=[],
+			congratulations='OK!',
+			follow_on_context={
+				'check_command':'git branch',
+				'context':'docker',
+				'reset_container_name':'imiell/git-rebase-tutorial:step_17',
+				'ok_container_name':'imiell/git-rebase-tutorial:step_19'
+			}
+		)
 		#git log --patch
 		#git checkout HEAD^^
 		#git branch -f master
