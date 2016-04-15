@@ -1,23 +1,23 @@
 FROM debian
-# Step 1 done
-RUN apt-get update && apt-get install -y git lsb-release vim && git config --global user.email "you@example.com" && git config --global user.name "Your Name" && mkdir -p myproject
 # Step 2 done
-WORKDIR /myproject
+RUN apt-get update && apt-get install -y git lsb-release vim bsdmainutils && git config --global user.email "you@example.com" && git config --global user.name "Your Name" && mkdir -p myproject
 # Step 3 done
-RUN git init 
+WORKDIR /myproject
 # Step 4 done
-RUN echo Line1 > afile
+RUN git init 
 # Step 5 done
-RUN git add afile
+RUN echo Line1 > afile
 # Step 6 done
-RUN git commit -am Line1
+RUN git add afile
 # Step 7 done
-RUN echo Line2 >> afile 
+RUN git commit -am Line1
 # Step 8 done
-RUN git commit -am Line2
+RUN echo Line2 >> afile 
 # Step 9 done
-RUN git branch feature_1
+RUN git commit -am Line2
 # Step 10 done
+RUN git branch feature_1
+# Step 11 done
 RUN echo Line3 >> afile
 # Step 11 done
 RUN git commit -am Line3
