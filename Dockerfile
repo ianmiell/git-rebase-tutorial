@@ -1,6 +1,6 @@
 FROM debian
 # Step 2 done
-RUN apt-get update && apt-get install -y git lsb-release vim bsdmainutils && git config --global user.email "you@example.com" && git config --global user.name "Your Name" && mkdir -p myproject
+RUN apt-get update && apt-get install -y git lsb-release vim bsdmainutils man-db manpages && git config --global user.email "you@example.com" && git config --global user.name "Your Name" && mkdir -p myproject
 # Step 3 done
 WORKDIR /myproject
 # Step 4 done
