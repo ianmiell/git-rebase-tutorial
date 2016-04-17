@@ -113,7 +113,7 @@ class git_rebase_tutorial(ShutItModule):
 				'check_command':'cat afile <(git status -s) <(find *)',
 				'context':'docker',
 				'reset_container_name':'imiell/git-rebase-tutorial:step_16',
-				'ok_container_name':'imiell/git-rebase-tutorial:step_17'
+				'ok_container_name':'imiell/git-rebase-tutorial:step_18'
 			}
 		)
 		shutit.challenge(
@@ -126,7 +126,7 @@ class git_rebase_tutorial(ShutItModule):
 			follow_on_context={
 				'check_command':'cat afile <(git status -s) <(find *)',
 				'context':'docker',
-				'reset_container_name':'imiell/git-rebase-tutorial:step_17',
+				'reset_container_name':'imiell/git-rebase-tutorial:step_18',
 				'ok_container_name':'imiell/git-rebase-tutorial:step_20'
 			}
 		)
