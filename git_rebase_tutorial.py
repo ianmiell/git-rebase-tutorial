@@ -54,7 +54,7 @@ class git_rebase_tutorial(ShutItModule):
 			hints=['git branch feature_1'],
 			congratulations='OK! feature_1 branch created.',
 			follow_on_context={
-				'check_command':'git branch | grep feature_1 | wc -l',
+				'check_command':'''git branch | grep '^[^*] feature_1' | wc -l''',
 				'context':'docker',
 				'reset_container_name':'imiell/git-rebase-tutorial:step_10',
 				'ok_container_name':'imiell/git-rebase-tutorial:step_11'
@@ -84,8 +84,8 @@ class git_rebase_tutorial(ShutItModule):
 			follow_on_context={
 				'check_command':'git status -b | grep ^On.branch | grep feature_1 | wc -l',
 				'context':'docker',
-				'reset_container_name':'imiell/git-rebase-tutorial:step_12',
-				'ok_container_name':'imiell/git-rebase-tutorial:step_13'
+				'reset_container_name':'imiell/git-rebase-tutorial:step_13',
+				'ok_container_name':'imiell/git-rebase-tutorial:step_14'
 			}
 		)
 		shutit.challenge(
@@ -98,7 +98,7 @@ class git_rebase_tutorial(ShutItModule):
 			follow_on_context={
 				'check_command':'cat afile <(git status -s) <(find *)',
 				'context':'docker',
-				'reset_container_name':'imiell/git-rebase-tutorial:step_13',
+				'reset_container_name':'imiell/git-rebase-tutorial:step_14',
 				'ok_container_name':'imiell/git-rebase-tutorial:step_16'
 			}
 		)
@@ -113,7 +113,7 @@ class git_rebase_tutorial(ShutItModule):
 				'check_command':'cat afile <(git status -s) <(find *)',
 				'context':'docker',
 				'reset_container_name':'imiell/git-rebase-tutorial:step_16',
-				'ok_container_name':'imiell/git-rebase-tutorial:step_18'
+				'ok_container_name':'imiell/git-rebase-tutorial:step_17'
 			}
 		)
 		shutit.challenge(
@@ -126,7 +126,7 @@ class git_rebase_tutorial(ShutItModule):
 			follow_on_context={
 				'check_command':'cat afile <(git status -s) <(find *)',
 				'context':'docker',
-				'reset_container_name':'imiell/git-rebase-tutorial:step_18',
+				'reset_container_name':'imiell/git-rebase-tutorial:step_17',
 				'ok_container_name':'imiell/git-rebase-tutorial:step_20'
 			}
 		)
@@ -145,7 +145,7 @@ class git_rebase_tutorial(ShutItModule):
 			}
 		)
 		shutit.challenge(
-			'Check out the parent commit. This is a trickier one, there are at least ways to achieve this.',
+			'Check out the parent commit. This is a trickier one, there are at least three ways to achieve this.',
 			'fd43955a1b0b8ef6231f9cf0370a07c9',
 			challenge_type='golf',
 			expect_type='md5sum',
@@ -210,8 +210,8 @@ class git_rebase_tutorial(ShutItModule):
 			follow_on_context={
 				'check_command':'cat afile <(git status -s) <(find *)',
 				'context':'docker',
-				'reset_container_name':'imiell/git-rebase-tutorial:step_20',
-				'ok_container_name':'imiell/git-rebase-tutorial:step_20'
+				'reset_container_name':'imiell/git-rebase-tutorial:step_29',
+				'ok_container_name':'imiell/git-rebase-tutorial:step_29'
 			}
 		)
 		return True
