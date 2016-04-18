@@ -32,6 +32,7 @@ class git_rebase_tutorial(ShutItModule):
 				'ok_container_name':'imiell/git-rebase-tutorial:step_8'
 			}
 		)
+		self._show_graph(shutit)
 		shutit.challenge(
 			'Add line "Line2" to file "afile", and commit it to the git repository.',
 			'ad16df00e2cbe96ca966924ee9e522fd',
@@ -46,6 +47,7 @@ class git_rebase_tutorial(ShutItModule):
 				'ok_container_name':'imiell/git-rebase-tutorial:step_10'
 			}
 		)
+		self._show_graph(shutit)
 		shutit.challenge(
 			'Create a branch called feature_1, but stay on the master branch!',
 			'1',
@@ -60,6 +62,7 @@ class git_rebase_tutorial(ShutItModule):
 				'ok_container_name':'imiell/git-rebase-tutorial:step_11'
 			}
 		)
+		self._show_graph(shutit)
 		shutit.challenge(
 			'Continuing on master, add a Line3 to "afile" and commit it',
 			'fd43955a1b0b8ef6231f9cf0370a07c9',
@@ -74,6 +77,7 @@ class git_rebase_tutorial(ShutItModule):
 				'ok_container_name':'imiell/git-rebase-tutorial:step_13'
 			}
 		)
+		self._show_graph(shutit)
 		shutit.challenge(
 			'Checkout the feature_1 branch',
 			'1',
@@ -88,6 +92,7 @@ class git_rebase_tutorial(ShutItModule):
 				'ok_container_name':'imiell/git-rebase-tutorial:step_14'
 			}
 		)
+		self._show_graph(shutit)
 		shutit.challenge(
 			'Add a line "FeatureLine1" to this branch and commit it',
 			'c049eb2a7f7f8a2fb8b3753f417f6aeb',
@@ -102,6 +107,7 @@ class git_rebase_tutorial(ShutItModule):
 				'ok_container_name':'imiell/git-rebase-tutorial:step_16'
 			}
 		)
+		self._show_graph(shutit)
 		shutit.challenge(
 			'Check out master, and merge feature_1 into it. Do not resolve the conflict!',
 			'33b1f78c48283141013ba1108cb15f6f',
@@ -116,6 +122,7 @@ class git_rebase_tutorial(ShutItModule):
 				'ok_container_name':'imiell/git-rebase-tutorial:step_18'
 			}
 		)
+		self._show_graph(shutit)
 		shutit.challenge(
 			'Resolve the conflict, placing FeatureLine1 after Line3, and commit',
 			'f950d22727f62b4c9c1a80624291e11f',
@@ -130,6 +137,7 @@ class git_rebase_tutorial(ShutItModule):
 				'ok_container_name':'imiell/git-rebase-tutorial:step_20'
 			}
 		)
+		self._show_graph(shutit)
 		shutit.challenge(
 			'Now have a look at the history graph with "git log --graph --decorate --oneline", and observe that it is quite messy.',
 			'f950d22727f62b4c9c1a80624291e11f',
@@ -144,12 +152,13 @@ class git_rebase_tutorial(ShutItModule):
 				'ok_container_name':'imiell/git-rebase-tutorial:step_20'
 			}
 		)
+		self._show_graph(shutit)
 		shutit.challenge(
-			'Check out the parent commit. This is a trickier one, there are at least three ways to achieve this.',
+			'We are going to back out this merge in the git history.\nCheck out the commit before FeatureLine1 was added. This is a trickier one, there are at least three ways to achieve this.',
 			'fd43955a1b0b8ef6231f9cf0370a07c9',
 			challenge_type='golf',
 			expect_type='md5sum',
-			hints=['git log to see the history','git checkout HEAD^'],
+			hints=['git log to see the history','git checkout <ID>','git checkout HEAD^'],
 			congratulations='OK! Parent commit checked out.',
 			follow_on_context={
 				'check_command':'cat afile <(git status -s) <(find *)',
@@ -158,8 +167,9 @@ class git_rebase_tutorial(ShutItModule):
 				'ok_container_name':'imiell/git-rebase-tutorial:step_21'
 			}
 		)
+		self._show_graph(shutit)
 		shutit.challenge(
-			'Force the master branch to revert back to this point.',
+			'Force the master branch to be at this point.',
 			'fd43955a1b0b8ef6231f9cf0370a07c9',
 			challenge_type='golf',
 			expect_type='md5sum',
@@ -172,6 +182,7 @@ class git_rebase_tutorial(ShutItModule):
 				'ok_container_name':'imiell/git-rebase-tutorial:step_22'
 			}
 		)
+		self._show_graph(shutit)
 		shutit.challenge(
 			'Check out the feature_1 branch, and rebase master against it',
 			'f950d22727f62b4c9c1a80624291e11f',
@@ -186,6 +197,7 @@ class git_rebase_tutorial(ShutItModule):
 				'ok_container_name':'imiell/git-rebase-tutorial:step_27'
 			}
 		)
+		self._show_graph(shutit)
 		shutit.challenge(
 			'Check out master and merge feature_1 against it',
 			'f950d22727f62b4c9c1a80624291e11f',
@@ -200,6 +212,7 @@ class git_rebase_tutorial(ShutItModule):
 				'ok_container_name':'imiell/git-rebase-tutorial:step_29'
 			}
 		)
+		self._show_graph(shutit)
 		shutit.challenge(
 			'Now have a look at the history graph with "git log --graph --decorate --oneline", comparing it with before. It is a lot cleaner!',
 			'f950d22727f62b4c9c1a80624291e11f',
@@ -215,6 +228,9 @@ class git_rebase_tutorial(ShutItModule):
 			}
 		)
 		return True
+	
+	def _show_graph(self,shutit):
+		shutit.send('echo "State of git repository now: " && git log --graph --oneline && echo',echo=True)
 
 def module():
 	return git_rebase_tutorial(

@@ -44,7 +44,7 @@ RUN git checkout feature_1
 # Step 23 done
 RUN git rebase master || /bin/true
 # Step 24 done
-RUN echo -e -n "Line1\nLine2\nLine3\nFeatureLine1\n" > afile
+RUN /bin/bash -c 'echo -e -n "Line1\nLine2\nLine3\nFeatureLine1\n" > afile'
 # Step 25 done
 RUN git add afile
 # Step 26 done
