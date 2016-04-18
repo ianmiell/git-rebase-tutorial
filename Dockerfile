@@ -32,7 +32,7 @@ RUN git checkout master
 # Step 17 done
 RUN git merge feature_1 || /bin/true
 # Step 18 done
-RUN echo -e -n "Line1\nLine2\nLine3\nFeatureLine1" > afile
+RUN /bin/bash -c 'echo -e -n "Line1\nLine2\nLine3\nFeatureLine1\n" > afile'
 # Step 19 done
 RUN git commit -am Merged
 # Step 20 done
