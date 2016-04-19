@@ -5,7 +5,38 @@ class git_rebase_tutorial(ShutItModule):
 	def build(self, shutit):
 		shutit.send('cd /myproject')
 		shutit.challenge(
-			'Just initialise a git repository in this folder (do not add or commit any files), then hit CTRL-] to continue.',
+			'''In this tutorial you will be asked to build up a git repo and manage a feature
+branch so that history can be managed cleanly.
+
+First we'll build up a simple project with parallel feature and master
+branches and do a naive merge. Then we will revert our changes and perform a much cleaner
+rebase followed by a merge. This will show you the value of rebasing to a master branch
+before doing a merge.
+
+At most stages you will be shown a visualised output of git log so you can see
+the state of its history.
+
+You have a full bash shell, so can use vi, less, man etc..
+
+If any tools are missing or there are bugs raise a github request or contact
+@ianmiell on twitter.
+
+CTRL-] (right angle bracket) to continue.
+''',
+			'1',
+			challenge_type='golf',
+			expect_type='exact',
+			hints=['Hit CTRL-C'],
+			congratulations='OK!',
+			follow_on_context={
+				'check_command':'echo 1',
+				'context':'docker',
+				'reset_container_name':'imiell/git-rebase-tutorial:step_4',
+				'ok_container_name':'imiell/git-rebase-tutorial:step_4'
+			}
+		)
+		shutit.challenge(
+			'Initialise a git repository in this folder (do not add or commit any files!), then hit CTRL-] to continue.',
 			'1',
 			challenge_type='golf',
 			expect_type='exact',
@@ -94,7 +125,7 @@ class git_rebase_tutorial(ShutItModule):
 		)
 		self._show_graph(shutit)
 		shutit.challenge(
-			'Add a line "FeatureLine1" to this branch and commit it',
+			'Add a line "FeatureLine1" to "afile" on this branch and commit it',
 			'c049eb2a7f7f8a2fb8b3753f417f6aeb',
 			challenge_type='golf',
 			expect_type='md5sum',
@@ -169,14 +200,14 @@ class git_rebase_tutorial(ShutItModule):
 		)
 		self._show_graph(shutit)
 		shutit.challenge(
-			'Force the master branch to be at this point.',
-			'fd43955a1b0b8ef6231f9cf0370a07c9',
+			'Force the master branch to be at this point, and check out the just-moved master branch.',
+			'1c85c8de900bc974f22976a4163b23cb',
 			challenge_type='golf',
 			expect_type='md5sum',
 			hints=['You might want to try git branching with the already-used branch name. But you might need to be forceful.','git branch -f master'],
 			congratulations='OK! Master branch moved.',
 			follow_on_context={
-				'check_command':'cat afile <(git status -s) <(find *)',
+				'check_command':'cat afile <(git status -s) <(find *) <(git branch | wc -l)',
 				'context':'docker',
 				'reset_container_name':'imiell/git-rebase-tutorial:step_21',
 				'ok_container_name':'imiell/git-rebase-tutorial:step_22'
@@ -230,7 +261,11 @@ class git_rebase_tutorial(ShutItModule):
 		return True
 	
 	def _show_graph(self,shutit):
-		shutit.send('echo "State of git repository now: " && git log --graph --oneline && echo',echo=True)
+		print '''================================================================================
+State of repository:
+
+''' + shutit.send_and_get_output("""git log --graph --oneline""") + '''================================================================================
+'''
 
 def module():
 	return git_rebase_tutorial(
