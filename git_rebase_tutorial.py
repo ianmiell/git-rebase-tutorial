@@ -139,6 +139,7 @@ CTRL-] (right angle bracket) to continue.
 			}
 		)
 		self._show_graph(shutit)
+		# TODO: merge the next two into one.
 		shutit.challenge(
 			'Check out master, and merge feature_1 into it. Do not resolve the conflict!',
 			'33b1f78c48283141013ba1108cb15f6f',
@@ -184,6 +185,7 @@ CTRL-] (right angle bracket) to continue.
 			}
 		)
 		self._show_graph(shutit)
+		# TODO: list the other two ways
 		shutit.challenge(
 			'We are going to back out this merge in the git history.\nCheck out the commit before FeatureLine1 was added. This is a trickier one, there are at least three ways to achieve this.',
 			'fd43955a1b0b8ef6231f9cf0370a07c9',
