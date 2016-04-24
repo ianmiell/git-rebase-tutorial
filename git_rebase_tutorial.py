@@ -139,37 +139,20 @@ CTRL-] (right angle bracket) to continue.
 			}
 		)
 		self._show_graph(shutit)
-		# TODO: merge the next two into one.
 		shutit.challenge(
-			'Check out master, and merge feature_1 into it. Do not resolve the conflict!',
-			'33b1f78c48283141013ba1108cb15f6f',
-			challenge_type='golf',
-			expect_type='md5sum',
-			hints=['git checkout master, then git merge feature_1'],
-			congratulations='OK! Un-resolved merge performed.',
-			follow_on_context={
-				'check_command':'cat afile <(git status -s) <(find *)',
-				'context':'docker',
-				'reset_container_name':'imiell/git-rebase-tutorial:step_16',
-				'ok_container_name':'imiell/git-rebase-tutorial:step_18'
-			}
-		)
-		self._show_graph(shutit)
-		shutit.challenge(
-			'Resolve the conflict, placing FeatureLine1 after Line3, and commit',
+			'Check out master, and merge feature_1 into it.\nResolve the conflict, placing FeatureLine1 after Line3, and commit',
 			'f950d22727f62b4c9c1a80624291e11f',
 			challenge_type='golf',
 			expect_type='md5sum',
-			hints=[],
+			hints=['git checkout master, then git merge feature_1'],
 			congratulations='OK! Merge done correctly.',
 			follow_on_context={
 				'check_command':'cat afile <(git status -s) <(find *)',
 				'context':'docker',
-				'reset_container_name':'imiell/git-rebase-tutorial:step_18',
+				'reset_container_name':'imiell/git-rebase-tutorial:step_16',
 				'ok_container_name':'imiell/git-rebase-tutorial:step_20'
 			}
 		)
-		self._show_graph(shutit)
 		shutit.challenge(
 			'Now have a look at the history graph with "git log --graph --decorate --oneline", and observe that it is quite messy.',
 			'f950d22727f62b4c9c1a80624291e11f',
@@ -184,7 +167,6 @@ CTRL-] (right angle bracket) to continue.
 				'ok_container_name':'imiell/git-rebase-tutorial:step_20'
 			}
 		)
-		self._show_graph(shutit)
 		# TODO: list the other two ways
 		shutit.challenge(
 			'We are going to back out this merge in the git history.\nCheck out the commit before FeatureLine1 was added. This is a trickier one, there are at least three ways to achieve this.',
@@ -192,7 +174,7 @@ CTRL-] (right angle bracket) to continue.
 			challenge_type='golf',
 			expect_type='md5sum',
 			hints=['git log to see the history','git checkout <ID>','git checkout HEAD^'],
-			congratulations='OK! Parent commit checked out.',
+			congratulations='OK! Parent commit checked out. The three ways were:\n\tgit checkout HEAD^\n\tgit checkout <commit id>\n\tgit checkout HEAD~1',
 			follow_on_context={
 				'check_command':'cat afile <(git status -s) <(find *)',
 				'context':'docker',
