@@ -184,11 +184,11 @@ CTRL-] (right angle bracket) to continue.
 		)
 		self._show_graph(shutit)
 		shutit.challenge(
-			'Force the master branch to be at this point, and check out the just-moved master branch.',
+			'Force the master branch to be pointed to the point in the history you have just checked out.\n\nOnce that is done, check out the just-moved master branch.\n\nAll you are doing here is reverting your git tree to a previous point so that we can have a cleaner git history. This is not the rebase step! If you are confused here, just use the help (CTRL-h) as it is not important to the tutorial.',
 			'1c85c8de900bc974f22976a4163b23cb',
 			challenge_type='golf',
 			expect_type='md5sum',
-			hints=['You might want to try git branching with the already-used branch name. But you might need to be forceful.','git branch -f master'],
+			hints=['You might want to try git branching with the already-used branch name. But you might need to be forceful.','git branch -f master && git checkout master'],
 			congratulations='OK! Master branch moved.',
 			follow_on_context={
 				'check_command':'cat afile <(git status -s) <(find *) <(git branch | wc -l)',
