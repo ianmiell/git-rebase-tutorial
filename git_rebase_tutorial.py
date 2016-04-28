@@ -26,7 +26,7 @@ CTRL-] (right angle bracket) to continue.
 			'1',
 			challenge_type='golf',
 			expect_type='exact',
-			hints=['Hit CTRL-C'],
+			hints=['Hit CTRL-]'],
 			congratulations='OK!',
 			follow_on_context={
 				'check_command':'echo 1',
