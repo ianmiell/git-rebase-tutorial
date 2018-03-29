@@ -176,7 +176,7 @@ CTRL-] (right angle bracket) to continue.
 		)
 		# TODO: list the other two ways
 		shutit.challenge(
-			'We are going to back out this merge in the git history
+			'''We are going to back out this merge in the git history
 
 Check out the commit before FeatureLine1 was added.
 
