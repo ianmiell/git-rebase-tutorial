@@ -258,11 +258,6 @@ This is a trickier one, there are at least three ways to achieve this.''',
 		return True
 	
 	def _show_graph(self,shutit):
-		print '''================================================================================
-State of repository:
-
-''' + shutit.send_and_get_output("""git log --graph --oneline""") + '''================================================================================
-'''
 
 def module():
 	return git_rebase_tutorial(
