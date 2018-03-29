@@ -50,7 +50,8 @@ CTRL-] (right angle bracket) to continue.
 			}
 		)
 		shutit.challenge(
-			'Create a file called "afile" with the line "Line1" in it, add and commit it to the git repository.',
+			'''1) Create a file called "afile" with the line "Line1" in it
+2) Add and commit the file to the git repository.''',
 			'5596bf0e157e6d7d7f0a5034e8609c13',
 			challenge_type='golf',
 			expect_type='md5sum',
@@ -65,7 +66,8 @@ CTRL-] (right angle bracket) to continue.
 		)
 		self._show_graph(shutit)
 		shutit.challenge(
-			'Add line "Line2" to file "afile", and commit it to the git repository.',
+			'''1) Add line "Line2" to file "afile"
+2) Commit the changed file to the git repository.''',
 			'6657ee19dcb40c5dfcdbf91f1e45a918',
 			challenge_type='golf',
 			expect_type='md5sum',
@@ -95,7 +97,8 @@ CTRL-] (right angle bracket) to continue.
 		)
 		self._show_graph(shutit)
 		shutit.challenge(
-			'Continuing on master, add a Line3 to "afile" and commit it',
+			'''1) Continuing on master, add a Line3 to "afile"
+2) Commit the change''',
 			'd948490d6683d647c3619c9082eac4e0',
 			challenge_type='golf',
 			expect_type='md5sum',
@@ -125,7 +128,8 @@ CTRL-] (right angle bracket) to continue.
 		)
 		self._show_graph(shutit)
 		shutit.challenge(
-			'Add a line "FeatureLine1" to "afile" on this branch and commit it',
+			'''1) Add a line "FeatureLine1" to "afile" on this (feature_1) branch
+2) Commit it''',
 			'1984e7dfbc27dfe90401a15c8b969a27',
 			challenge_type='golf',
 			expect_type='md5sum',
@@ -140,7 +144,10 @@ CTRL-] (right angle bracket) to continue.
 		)
 		self._show_graph(shutit)
 		shutit.challenge(
-			'Check out master, and merge feature_1 into it.\nResolve the conflict, placing FeatureLine1 after Line3, and commit',
+			'''1) Check out master
+2) Merge feature_1 into master.
+3) Resolve the conflict, placing FeatureLine1 after Line3
+4) Commit the merge''',
 			'6caf372d723434c8ca900b2bfb9f03e5',
 			challenge_type='golf',
 			expect_type='md5sum',
@@ -169,7 +176,11 @@ CTRL-] (right angle bracket) to continue.
 		)
 		# TODO: list the other two ways
 		shutit.challenge(
-			'We are going to back out this merge in the git history.\nCheck out the commit before FeatureLine1 was added. This is a trickier one, there are at least three ways to achieve this.',
+			'We are going to back out this merge in the git history
+
+Check out the commit before FeatureLine1 was added.
+
+This is a trickier one, there are at least three ways to achieve this.''',
 			'6657ee19dcb40c5dfcdbf91f1e45a918',
 			challenge_type='golf',
 			expect_type='md5sum',
@@ -184,7 +195,7 @@ CTRL-] (right angle bracket) to continue.
 		)
 		self._show_graph(shutit)
 		shutit.challenge(
-			'Force the master branch to be pointed to the point in the history you have just checked out.\n\nOnce that is done, check out the just-moved master branch.\n\nAll you are doing here is reverting your git tree to a previous point so that we can have a cleaner git history. This is not the rebase step! If you are confused here, just use the help (CTRL-h) as it is not important to the tutorial.',
+			'''Force the master branch to be pointed to the point in the history you have just checked out.\n\nOnce that is done, check out the just-moved master branch.\n\nAll you are doing here is reverting your git tree to a previous point so that we can have a cleaner git history. This is not the rebase step! If you are confused here, just use the help (CTRL-h) as it is not important to the tutorial.''',
 			'3b587ce6aaf50a10a82b983d194f22f8',
 			challenge_type='golf',
 			expect_type='md5sum',
@@ -199,7 +210,8 @@ CTRL-] (right angle bracket) to continue.
 		)
 		self._show_graph(shutit)
 		shutit.challenge(
-			'Check out the feature_1 branch, and rebase master against it',
+			'''1) Check out the feature_1 branch
+2) Rebase master against feature_1''',
 			'aba6936fbcef02637df5f7b07fb8084e',
 			challenge_type='golf',
 			expect_type='md5sum',
@@ -214,7 +226,8 @@ CTRL-] (right angle bracket) to continue.
 		)
 		self._show_graph(shutit)
 		shutit.challenge(
-			'Check out master and merge feature_1 against it',
+			'''1) Check out master
+2) Merge feature_1 against master''',
 			'aba6936fbcef02637df5f7b07fb8084e',
 			challenge_type='golf',
 			expect_type='md5sum',
