@@ -1,7 +1,5 @@
 #!/bin/bash
-set -x
-set -u
-set -e
+set -eux
 IMAGE_NAME="imiell/git-rebase-tutorial"
 #docker images | tac | grep "$IMAGE_NAME" | awk '{print $3}' | xargs docker rmi
 docker build -t $IMAGE_NAME .
