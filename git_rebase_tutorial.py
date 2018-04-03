@@ -64,7 +64,6 @@ CTRL-] (right angle bracket) to continue.
 				'ok_container_name':'imiell/git-rebase-tutorial:step_8'
 			}
 		)
-		self._show_graph(shutit)
 		shutit.challenge(
 			'''1) Add line "Line2" to file "afile"
 2) Commit the changed file to the git repository.''',
@@ -80,7 +79,6 @@ CTRL-] (right angle bracket) to continue.
 				'ok_container_name':'imiell/git-rebase-tutorial:step_10'
 			}
 		)
-		self._show_graph(shutit)
 		shutit.challenge(
 			'Create a branch called feature_1, but stay on the master branch!',
 			'1',
@@ -95,7 +93,6 @@ CTRL-] (right angle bracket) to continue.
 				'ok_container_name':'imiell/git-rebase-tutorial:step_11'
 			}
 		)
-		self._show_graph(shutit)
 		shutit.challenge(
 			'''1) Continuing on master, add a Line3 to "afile"
 2) Commit the change''',
@@ -111,7 +108,6 @@ CTRL-] (right angle bracket) to continue.
 				'ok_container_name':'imiell/git-rebase-tutorial:step_13'
 			}
 		)
-		self._show_graph(shutit)
 		shutit.challenge(
 			'Checkout the feature_1 branch',
 			'1',
@@ -126,7 +122,6 @@ CTRL-] (right angle bracket) to continue.
 				'ok_container_name':'imiell/git-rebase-tutorial:step_14'
 			}
 		)
-		self._show_graph(shutit)
 		shutit.challenge(
 			'''1) Add a line "FeatureLine1" to "afile" on this (feature_1) branch
 2) Commit it''',
@@ -142,7 +137,6 @@ CTRL-] (right angle bracket) to continue.
 				'ok_container_name':'imiell/git-rebase-tutorial:step_16'
 			}
 		)
-		self._show_graph(shutit)
 		shutit.challenge(
 			'''1) Check out master
 2) Merge feature_1 into master.
@@ -193,7 +187,6 @@ This is a trickier one, there are at least three ways to achieve this.''',
 				'ok_container_name':'imiell/git-rebase-tutorial:step_21'
 			}
 		)
-		self._show_graph(shutit)
 		shutit.challenge(
 			'''Force the master branch to be pointed to the point in the history you have just checked out.\n\nOnce that is done, check out the just-moved master branch.\n\nAll you are doing here is reverting your git tree to a previous point so that we can have a cleaner git history. This is not the rebase step! If you are confused here, just use the help (CTRL-h) as it is not important to the tutorial.''',
 			'3b587ce6aaf50a10a82b983d194f22f8',
@@ -208,7 +201,6 @@ This is a trickier one, there are at least three ways to achieve this.''',
 				'ok_container_name':'imiell/git-rebase-tutorial:step_22'
 			}
 		)
-		self._show_graph(shutit)
 		shutit.challenge(
 			'''1) Check out the feature_1 branch
 2) Rebase master against feature_1''',
@@ -224,7 +216,6 @@ This is a trickier one, there are at least three ways to achieve this.''',
 				'ok_container_name':'imiell/git-rebase-tutorial:step_27'
 			}
 		)
-		self._show_graph(shutit)
 		shutit.challenge(
 			'''1) Check out master
 2) Merge feature_1 against master''',
@@ -240,7 +231,6 @@ This is a trickier one, there are at least three ways to achieve this.''',
 				'ok_container_name':'imiell/git-rebase-tutorial:step_29'
 			}
 		)
-		self._show_graph(shutit)
 		shutit.challenge(
 			'Now have a look at the history graph with "git log --graph --decorate --oneline", comparing it with before. It is a lot cleaner than it was before!',
 			'aba6936fbcef02637df5f7b07fb8084e',
@@ -257,8 +247,6 @@ This is a trickier one, there are at least three ways to achieve this.''',
 		)
 		return True
 	
-	def _show_graph(self,shutit):
-
 def module():
 	return git_rebase_tutorial(
 		'tk.shutit.git_rebase_tutorial', 1845506479.0001,
