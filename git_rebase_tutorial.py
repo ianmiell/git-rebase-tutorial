@@ -39,7 +39,7 @@ ________________________________________________________________________________
 			}
 		)
 		shutit.challenge(
-			'Initialise a git repository in this folder (do not add or commit any files!), then hit CTRL-] to continue.
+			'''Initialise a git repository in this folder (do not add or commit any files!), then hit CTRL-] to continue.
 ________________________________________________________________________________
 ',
 			'1',
