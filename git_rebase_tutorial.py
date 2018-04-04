@@ -40,8 +40,7 @@ ________________________________________________________________________________
 		)
 		shutit.challenge(
 			'''Initialise a git repository in this folder (do not add or commit any files!), then hit CTRL-] to continue.
-________________________________________________________________________________
-',
+________________________________________________________________________________''',
 			'1',
 			challenge_type='golf',
 			expect_type='exact',
