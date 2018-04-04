@@ -5,23 +5,26 @@ class git_rebase_tutorial(ShutItModule):
 	def build(self, shutit):
 		shutit.send('cd /myproject')
 		shutit.challenge(
-			'''In this tutorial you will be asked to build up a git repo and manage a feature
-branch so that history can be managed cleanly.
+			'''In this tutorial you will be asked to build up a git repo and
+manage a feature branch so that history can be managed cleanly.
 
 First we'll build up a simple project with parallel feature and master
-branches and do a naive merge. Then we will revert our changes and perform a much cleaner
-rebase followed by a merge. This will show you the value of rebasing to a master branch
-before doing a merge.
+branches and do a naive merge. Then we will revert our changes and perform a
+much cleaner rebase followed by a merge. This will show you the value of
+rebasing to a master branch before doing a merge.
 
 At most stages you will be shown a visualised output of git log so you can see
 the state of its history.
 
 You have a full bash shell, so can use vi, less, man etc..
+________________________________________________________________________________
 
 If any tools are missing or there are bugs raise a github request or contact
 @ianmiell on twitter.
+________________________________________________________________________________
 
 CTRL-] (right angle bracket) to continue.
+________________________________________________________________________________
 ''',
 			'1',
 			challenge_type='golf',
@@ -36,7 +39,9 @@ CTRL-] (right angle bracket) to continue.
 			}
 		)
 		shutit.challenge(
-			'Initialise a git repository in this folder (do not add or commit any files!), then hit CTRL-] to continue.',
+			'Initialise a git repository in this folder (do not add or commit any files!), then hit CTRL-] to continue.
+________________________________________________________________________________
+',
 			'1',
 			challenge_type='golf',
 			expect_type='exact',
@@ -51,7 +56,8 @@ CTRL-] (right angle bracket) to continue.
 		)
 		shutit.challenge(
 			'''1) Create a file called "afile" with the line "Line1" in it
-2) Add and commit the file to the git repository.''',
+2) Add and commit the file to the git repository.
+________________________________________________________________________________''',
 			'5596bf0e157e6d7d7f0a5034e8609c13',
 			challenge_type='golf',
 			expect_type='md5sum',
@@ -66,7 +72,8 @@ CTRL-] (right angle bracket) to continue.
 		)
 		shutit.challenge(
 			'''1) Add line "Line2" to file "afile"
-2) Commit the changed file to the git repository.''',
+2) Commit the changed file to the git repository.
+________________________________________________________________________________''',
 			'6657ee19dcb40c5dfcdbf91f1e45a918',
 			challenge_type='golf',
 			expect_type='md5sum',
@@ -80,7 +87,8 @@ CTRL-] (right angle bracket) to continue.
 			}
 		)
 		shutit.challenge(
-			'Create a branch called feature_1, but stay on the master branch!',
+			'''Create a branch called feature_1, but stay on the master branch!
+________________________________________________________________________________''',
 			'1',
 			challenge_type='golf',
 			expect_type='exact',
@@ -95,7 +103,8 @@ CTRL-] (right angle bracket) to continue.
 		)
 		shutit.challenge(
 			'''1) Continuing on master, add a Line3 to "afile"
-2) Commit the change''',
+2) Commit the change
+________________________________________________________________________________''',
 			'd948490d6683d647c3619c9082eac4e0',
 			challenge_type='golf',
 			expect_type='md5sum',
@@ -109,7 +118,8 @@ CTRL-] (right angle bracket) to continue.
 			}
 		)
 		shutit.challenge(
-			'Checkout the feature_1 branch',
+			'''Checkout the feature_1 branch
+________________________________________________________________________________''',
 			'1',
 			challenge_type='golf',
 			expect_type='exact',
@@ -124,7 +134,8 @@ CTRL-] (right angle bracket) to continue.
 		)
 		shutit.challenge(
 			'''1) Add a line "FeatureLine1" to "afile" on this (feature_1) branch
-2) Commit it''',
+2) Commit it
+________________________________________________________________________________''',
 			'1984e7dfbc27dfe90401a15c8b969a27',
 			challenge_type='golf',
 			expect_type='md5sum',
@@ -141,7 +152,8 @@ CTRL-] (right angle bracket) to continue.
 			'''1) Check out master
 2) Merge feature_1 into master.
 3) Resolve the conflict, placing FeatureLine1 after Line3
-4) Commit the merge''',
+4) Commit the merge
+________________________________________________________________________________''',
 			'6caf372d723434c8ca900b2bfb9f03e5',
 			challenge_type='golf',
 			expect_type='md5sum',
@@ -155,7 +167,8 @@ CTRL-] (right angle bracket) to continue.
 			}
 		)
 		shutit.challenge(
-			'Now have a look at the history graph with "git log --graph --decorate --oneline", and observe that it is quite messy.',
+			'''Now have a look at the history graph with "git log --graph --decorate --oneline", and observe that it is quite messy.
+________________________________________________________________________________''',
 			'6caf372d723434c8ca900b2bfb9f03e5',
 			challenge_type='golf',
 			expect_type='md5sum',
@@ -174,7 +187,8 @@ CTRL-] (right angle bracket) to continue.
 
 Check out the commit before FeatureLine1 was added.
 
-This is a trickier one, there are at least three ways to achieve this.''',
+This is a trickier one, there are at least three ways to achieve this.
+________________________________________________________________________________''',
 			'6657ee19dcb40c5dfcdbf91f1e45a918',
 			challenge_type='golf',
 			expect_type='md5sum',
@@ -188,7 +202,11 @@ This is a trickier one, there are at least three ways to achieve this.''',
 			}
 		)
 		shutit.challenge(
-			'''Force the master branch to be pointed to the point in the history you have just checked out.\n\nOnce that is done, check out the just-moved master branch.\n\nAll you are doing here is reverting your git tree to a previous point so that we can have a cleaner git history. This is not the rebase step! If you are confused here, just use the help (CTRL-h) as it is not important to the tutorial.''',
+			'''Force the master branch to be pointed to the point in the history you have just checked out.\n\nOnce that is done, check out the just-moved master branch.\n\nAll you are doing here is reverting your git tree to a previous point so that we can have a cleaner git history. This is not the rebase step!
+________________________________________________________________________________
+
+If you are confused here, just use the help (CTRL-h) as it is not important to the tutorial.
+________________________________________________________________________________''',
 			'3b587ce6aaf50a10a82b983d194f22f8',
 			challenge_type='golf',
 			expect_type='md5sum',
@@ -203,7 +221,8 @@ This is a trickier one, there are at least three ways to achieve this.''',
 		)
 		shutit.challenge(
 			'''1) Check out the feature_1 branch
-2) Rebase master against feature_1''',
+2) Rebase master against feature_1
+________________________________________________________________________________''',
 			'aba6936fbcef02637df5f7b07fb8084e',
 			challenge_type='golf',
 			expect_type='md5sum',
@@ -218,7 +237,8 @@ This is a trickier one, there are at least three ways to achieve this.''',
 		)
 		shutit.challenge(
 			'''1) Check out master
-2) Merge feature_1 against master''',
+2) Merge feature_1 against master
+________________________________________________________________________________''',
 			'aba6936fbcef02637df5f7b07fb8084e',
 			challenge_type='golf',
 			expect_type='md5sum',
@@ -232,7 +252,9 @@ This is a trickier one, there are at least three ways to achieve this.''',
 			}
 		)
 		shutit.challenge(
-			'Now have a look at the history graph with "git log --graph --decorate --oneline", comparing it with before. It is a lot cleaner than it was before!',
+			'''Now have a look at the history graph with "git log --graph --decorate --oneline", comparing it with before. It is a lot cleaner than it was before!
+________________________________________________________________________________''',
+			'aba6936fbcef02637df5f7b07fb8084e',
 			'aba6936fbcef02637df5f7b07fb8084e',
 			challenge_type='golf',
 			expect_type='md5sum',
