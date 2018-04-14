@@ -3,8 +3,6 @@ from shutit_module import ShutItModule
 class git_rebase_tutorial(ShutItModule):
 
 	def build(self, shutit):
-		import sys
-		sys.exit(0)
 		shutit.send('cd /myproject')
 		shutit.challenge(
 			'''In this tutorial you will be asked to build up a git repo and
